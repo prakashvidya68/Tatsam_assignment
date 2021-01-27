@@ -24,7 +24,7 @@ class App extends StatelessWidget {
             create: (context) => FavCountriesListViewModel(),
           ),
         ],
-        child: MovieListPage(
+        child: CountryListPage(
           context: context,
         ),
       ),

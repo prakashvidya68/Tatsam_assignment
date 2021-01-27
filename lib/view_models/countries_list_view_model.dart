@@ -5,7 +5,7 @@ import './country_view_model.dart';
 class CountriesListViewModel extends ChangeNotifier {
   List<CountryViewModel> countries = List<CountryViewModel>();
   List<CountryViewModel> res = [];
-  Future<void> fetchMovies() async {
+  Future<void> fetchCountries() async {
     this.countries.clear();
     res.clear();
     final results = await Webservice().fetchCountries(30, 0);

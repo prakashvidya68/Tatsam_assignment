@@ -22,7 +22,7 @@ class _FavCountryListState extends State<FavCountryList> {
       // controller: controller,
       itemCount: this.widget.country.length,
       itemBuilder: (context, index) {
-        final movie = this.widget.country[index];
+        final country = this.widget.country[index];
 
         return ListTile(
           contentPadding: EdgeInsets.all(10),
@@ -35,14 +35,14 @@ class _FavCountryListState extends State<FavCountryList> {
             height: 100,
             child: Center(
               child: Text(
-                movie.countryCode,
+                country.countryCode,
                 style:
                     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
             ),
           ),
-          title: Text(movie.countryName),
-          subtitle: Text("region: ${movie.region}"),
+          title: Text(country.countryName),
+          subtitle: Text("region: ${country.region}"),
           trailing: IconButton(
             icon: Icon(
               Icons.favorite,
@@ -52,7 +52,7 @@ class _FavCountryListState extends State<FavCountryList> {
               print(widget.favs);
               setState(() {
                 widget.favs.toggleFav(
-                    movie.countryCode, movie.countryName, movie.region);
+                    country.countryCode, country.countryName, country.region);
               });
             },
           ),

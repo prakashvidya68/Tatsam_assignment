@@ -13,8 +13,6 @@ class Webservice {
       final json = body["data"];
       final list = [];
       json.forEach((key, value) => list.add(value));
-      // return list;
-      // print(json.map((movie) => Country.fromJson(movie)).toList());
       return list.map((country) => Country.fromJson(country)).toList();
     } else {
       throw Exception("Unable to perform request!");

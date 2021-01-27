@@ -18,7 +18,7 @@ class CountryList extends StatelessWidget {
       controller: controller,
       itemCount: this.country.length,
       itemBuilder: (context, index) {
-        final movie = this.country[index];
+        final country = this.country[index];
 
         return ListTile(
           contentPadding: EdgeInsets.all(10),
@@ -31,23 +31,24 @@ class CountryList extends StatelessWidget {
             height: 100,
             child: Center(
               child: Text(
-                movie.countryCode,
+                country.countryCode,
                 style:
                     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
             ),
           ),
-          title: Text(movie.countryName),
-          subtitle: Text("region: ${movie.region}"),
+          title: Text(country.countryName),
+          subtitle: Text("region: ${country.region}"),
           trailing: IconButton(
             icon: Icon(
               Icons.favorite,
-              color:
-                  (favCountry.contains(movie.countryCode) ? Colors.pink : null),
+              color: (favCountry.contains(country.countryCode)
+                  ? Colors.pink
+                  : null),
             ),
             onPressed: () {
               favC.toggleFav(
-                  movie.countryCode, movie.countryName, movie.region);
+                  country.countryCode, country.countryName, country.region);
             },
           ),
         );

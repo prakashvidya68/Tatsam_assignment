@@ -8,15 +8,15 @@ import '../view_models/countries_list_view_model.dart';
 import '../widgets/ country_list.dart';
 import 'package:provider/provider.dart';
 
-class MovieListPage extends StatefulWidget {
+class CountryListPage extends StatefulWidget {
   final BuildContext context;
 
-  MovieListPage({this.context});
+  CountryListPage({this.context});
   @override
-  _MovieListPageState createState() => _MovieListPageState();
+  _CountryListPageState createState() => _CountryListPageState();
 }
 
-class _MovieListPageState extends State<MovieListPage> {
+class _CountryListPageState extends State<CountryListPage> {
   ScrollController _controller;
   int counter = 30;
 
@@ -28,7 +28,8 @@ class _MovieListPageState extends State<MovieListPage> {
     _controller = ScrollController();
     _controller.addListener(_scrollListener);
     super.initState();
-    Provider.of<CountriesListViewModel>(context, listen: false).fetchMovies();
+    Provider.of<CountriesListViewModel>(context, listen: false)
+        .fetchCountries();
 
     Provider.of<FavCountriesListViewModel>(context, listen: false).fetchFav();
   }
@@ -79,7 +80,7 @@ class _MovieListPageState extends State<MovieListPage> {
       body: RefreshIndicator(
         onRefresh: () {
           return Provider.of<CountriesListViewModel>(context, listen: false)
-              .fetchMovies();
+              .fetchCountries();
         },
         child: timeUP && vm.countries.isEmpty
             ? ListView(children: [
